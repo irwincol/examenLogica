@@ -23,5 +23,65 @@ public class Main {
 //        Resultados esperados: Mostrar opción elegida, datos ingresados y resultado final.
 //
         Scanner sc = new Scanner(System.in);
+        System.out.println("bienvenido a GameWordl, seleccione las siguientes opciones para continuar: ");
+        System.out.println("Seleccione las siguiente opciones para continuar:\n1 - Comprar Videojuegos\n2 - Comprar accesorios\n3- Solicitar membresia");
+        String menuOpciones = sc.nextLine();
+        switch (menuOpciones) {
+            case "1":
+                System.out.println("elegiste comprar un videojuego");
+                System.out.print("Ingrese el valor del videojuego: ");
+                double valorJuego = sc.nextDouble();
+                System.out.print("marque 1 si es cliente recurrente ");
+                sc.nextLine();
+                String clienteRecurrente = sc.nextLine();
+                double descuento = 0.0;
+                if (valorJuego > 150000) {
+                    descuento = valorJuego * 0.10;
+                    valorJuego = valorJuego - descuento;
+                }
+                else if (clienteRecurrente.equals("1")) {
+                    double descuentoRecurrente = valorJuego * 0.05;
+                    valorJuego = valorJuego - descuentoRecurrente;
+                    descuento += descuentoRecurrente;
+                    System.out.println("Descuento total aplicado: $" + descuento);
+                    System.out.println("Precio final del videojuego: $" + valorJuego);
+                }
+                else
+                break;
+            case "2":
+                System.out.println("Opción elegida: Comprar accesorio");
+                System.out.print("Ingrese tipo de accesorio: ");
+                sc.nextLine();
+                String tipo = sc.nextLine();
+                System.out.print("Ingrese el valor del accesorio: ");
+                int valorAccesorio = sc.nextInt();
+                double descuentoAccesorio = 0;
+                if (valorAccesorio > 200000) {
+                    descuentoAccesorio = valorAccesorio * 0.08;
+                        }
+                else if (valorAccesorio >= 50000 && valorAccesorio <= 200000) {
+                    descuentoAccesorio = valorAccesorio * 0.05;
+                }
+                int precioFinalAcc = (int)(valorAccesorio - descuentoAccesorio);
+                System.out.println("Accesorio: " + tipo);
+                System.out.println("Descuento aplicado: $" + descuentoAccesorio);
+                System.out.println("Precio final del accesorio: $" + precioFinalAcc);
+
+                break;
+                case "3":
+                    System.out.println("Opción elegida: Solicitar membresía");
+                    System.out.print("Ingrese su edad: ");
+                    int edad = sc.nextInt();
+                    if (edad < 18) {
+                        System.out.println("No puede solicitar la membresía.");
+                        }
+                    else if (edad >= 18 && edad <= 49) {
+                        System.out.println("Puede solicitar la membresía estándar.");
+                        }
+                    else {
+                        System.out.println("Puede solicitar la membresía premium.");
+                        }
+                    break;
+        }
     }
 }
