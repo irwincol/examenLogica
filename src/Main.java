@@ -31,13 +31,14 @@ public class Main {
                 System.out.println("elegiste comprar un videojuego");
                 System.out.print("Ingrese el valor del videojuego: ");
                 double valorJuego = sc.nextDouble();
-                System.out.print("marque 1 si es cliente recurrente o marque 2 si no lo es ");
+                System.out.print("marque 1 por ser cliente recurrente ");
                 int clienteRecurrente = sc.nextInt();
                 double descuento = 0.0;
                 if (valorJuego > 150000) {
                     descuento = valorJuego * 0.10;
                     valorJuego = valorJuego - descuento;
-                } else if (clienteRecurrente ==1) {
+                }
+                if (clienteRecurrente ==1) {
                     double descuentoRecurrente = valorJuego * 0.05;
                     valorJuego = valorJuego - descuentoRecurrente;
                     descuento += descuentoRecurrente;
@@ -48,7 +49,6 @@ public class Main {
             case "2":
                 System.out.println("Opción elegida: Comprar accesorio");
                 System.out.print("Ingrese tipo de accesorio: ");
-                sc.nextLine();
                 String tipo = sc.nextLine();
                 System.out.print("Ingrese el valor del accesorio: ");
                 int valorAccesorio = sc.nextInt();
@@ -60,8 +60,8 @@ public class Main {
                     descuentoAccesorio = valorAccesorio * 0.05;
                 }
                 int precioFinalAcc = (int)(valorAccesorio - descuentoAccesorio);
-                System.out.println("Accesorio: " + tipo);
-                System.out.println("Descuento aplicado: " + descuentoAccesorio);
+                System.out.println(" el accesorio que compro es: " + tipo);
+                System.out.println("Descuento total: " + descuentoAccesorio);
                 System.out.println("Precio final del accesorio: " + precioFinalAcc);
 
                 break;
@@ -69,14 +69,15 @@ public class Main {
                 System.out.println("Opción elegida: Solicitar membresía");
                 System.out.print("Ingrese su edad: ");
                 int edad = sc.nextInt();
+                String membresia = "";
                 if (edad < 18) {
                     System.out.println("No puede solicitar la membresía.");
                 }
                 else if (edad >= 18 && edad <= 49) {
-                    System.out.println("Puede solicitar la membresía estándar.");
+                    System.out.println( membresia= "Puede solicitar la membresía estándar.");
                 }
                 else {
-                    System.out.println("Puede solicitar la membresía premium.");
+                    System.out.println( membresia = "Puede solicitar la membresía premium.");
                 }
                 break;
         }
